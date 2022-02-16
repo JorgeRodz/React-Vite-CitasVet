@@ -1,13 +1,19 @@
+import Header from "./components/Header";
+
 function App() {
   /* Here we can put js code */
 
-  /*
-    - Aquí no podemos incluir funciones
+  return (
+    /*
+    - Aquí en el return no podemos incluir funciones
     - Podemos agregar código js(expresiones) usando -> {}
       - ternarios
       - operaciones aritméticas
-  */
-  return <></>;
+    */
+    <>
+      <Header />
+    </>
+  );
 }
 
 export default App;
