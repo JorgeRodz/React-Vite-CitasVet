@@ -1,4 +1,6 @@
 import Header from "./components/Header";
+import Form from "./components/form";
+import ListadoPacientes from "./components/ListadoPacientes";
 
 function App() {
   /* Here we can put js code */
@@ -12,6 +14,8 @@ function App() {
     */
     <>
       <Header />
+      <Form />
+      <ListadoPacientes />
     </>
   );
 }
