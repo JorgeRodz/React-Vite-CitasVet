@@ -1,5 +1,5 @@
 import Header from "./components/Header";
-import Form from "./components/form";
+import Form from "./components/Form";
 import ListadoPacientes from "./components/ListadoPacientes";
 
 function App() {
@@ -12,7 +12,7 @@ function App() {
       - ternarios
       - operaciones aritméticas
     */
-    <div className="container mx-auto mt-20">
+    <div className="container mx-auto mt-14">
       <Header />
       <div className="mt-12 md:flex">
         <Form />
