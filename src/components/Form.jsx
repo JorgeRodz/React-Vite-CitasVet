@@ -2,11 +2,11 @@ const Form = () => {
   return (
     <div className="md:w-1/2 lg:w-2/5">
       <h2 className="font-black text-3xl text-center">Seguimiento Pacientes</h2>
-      <p className="text-lg mt-5 text-center mb-10">
+      <p className="text-lg mt-5 text-center mb-6">
         Añade Pacientes y{" "}
-        <span className="text-indigo-600 font-bold">Administralos</span>
+        <span className="text-blue-600 font-bold">Administralos</span>
       </p>
-      <form className="bg-white shadow-2xl rounded-2xl py-10 px-5">
+      <form className="bg-white shadow-2xl rounded-2xl py-10 px-5 mx-3">
         <div className="mb-5">
           <label
             className="block text-gray-700 capitalize font-bold"
@@ -76,7 +76,7 @@ const Form = () => {
           />
         </div>
         <input
-          className="bg-blue-600 hover:bg-blue-700 transition-all duration-150  hover:shadow-xl hover:-translate-y-0.5 transform block w-1/3 my-0 mx-auto p-3 text-white uppercase font-bold rounded-3xl cursor-pointer"
+          className="bg-blue-600 hover:bg-blue-700 transition-all duration-150  hover:shadow-xl hover:-translate-y-0.5 transform block min-w-min my-0 mx-auto py-3 px-6 text-white uppercase font-bold rounded-3xl cursor-pointer"
           type="submit"
           value="Agregar paciente"
         />
