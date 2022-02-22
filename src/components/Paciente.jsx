@@ -1,34 +1,52 @@
-const Paciente = () => {
+const Paciente = ({ paciente, setPaciente, eliminarPaciente }) => {
   return (
-    <div className="m-3 bg-white border-2 border-blue-200 shadow-xl px-5 py-10 rounded-xl">
+    <div className="m-3 bg-white shadow-xl px-5 py-5 rounded-xl mb-6">
       <p className="font-bold mb-2 text-blue-400 capitalize">
-        Nombre: <span className="normal-case font-normal text-black">Hook</span>
+        Nombre:{" "}
+        <span className="normal-case font-normal text-black">
+          {paciente.nombreMascota}
+        </span>
       </p>
       <p className="font-bold mb-2 text-blue-400 capitalize">
         Propietario:{" "}
-        <span className="normal-case font-normal text-black">Jorge</span>
+        <span className="normal-case font-normal text-black">
+          {paciente.propietario}
+        </span>
       </p>
       <p className="font-bold mb-2 text-blue-400 capitalize">
         Email:{" "}
         <span className="normal-case font-normal text-black">
-          correo@correo.com
+          {paciente.email}
         </span>
       </p>
       <p className="font-bold mb-2 text-blue-400 capitalize">
         Fecha Alta:{" "}
         <span className="normal-case font-normal text-black">
-          10 de Diciembre de 2022
+          {paciente.fechaAlta}
         </span>
       </p>
       <p className="font-bold mb-2 text-blue-400 capitalize">
         Sintomas:{" "}
         <span className="normal-case font-normal text-black">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea
-          laboriosam voluptatem commodi iste cum quos explicabo quo consequatur.
-          Provident eligendi optio voluptatibus consequuntur atque sequi
-          officiis tempora beatae cupiditate sunt.
+          {paciente.sintomas}
         </span>
       </p>
+      <div className="flex justify-evenly mt-5">
+        <button
+          type="button"
+          className="bg-green-600 hover:bg-green-700 transition-all duration-150  hover:shadow-xl hover:-translate-y-0.5 transform py-1 px-8 text-white capitalize font-bold rounded-lg cursor-pointer"
+          onClick={() => setPaciente(paciente)}
+        >
+          Editar
+        </button>
+        <button
+          type="button"
+          className="bg-red-600 hover:bg-red-700 transition-all duration-150  hover:shadow-xl hover:-translate-y-0.5 transform py-1 px-8 text-white capitalize font-bold rounded-lg cursor-pointer"
+          onClick={() => eliminarPaciente(paciente.id)}
+        >
+          Eliminar
+        </button>
+      </div>
     </div>
   );
 };
