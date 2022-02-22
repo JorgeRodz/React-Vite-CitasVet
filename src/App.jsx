@@ -22,7 +22,7 @@ function App() {
       - ternarios
       - operaciones aritméticas
     */
-    <div className="container mx-auto mt-14">
+    <div className="container mx-auto mt-14 px-3">
       <Header />
       <div className="mt-12 md:flex">
         <Form

@@ -104,7 +104,7 @@ const Form = ({ pacientes, setPacientes, paciente, setPaciente }) => {
       <form
         className={
           paciente.id
-            ? "bg-white border-2 border-green-400 shadow-2xl rounded-2xl py-7 px-5 mx-3"
+            ? "bg-white border-2 border-green-400 shadow-2xl rounded-2xl py-7 px-5"
             : "bg-white shadow-2xl rounded-2xl py-7 px-5 mx-3"
         }
         onSubmit={handleSubmit}
