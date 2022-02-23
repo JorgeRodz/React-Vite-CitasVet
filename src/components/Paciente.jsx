@@ -1,6 +1,30 @@
+import { useEffect, useState, useRef } from "react";
 import swal from "sweetalert";
 
-const Paciente = ({ paciente, setPaciente, eliminarPaciente }) => {
+const Paciente = ({
+  paciente,
+  setPaciente,
+  eliminarPaciente,
+  appPacienteState,
+}) => {
+  //*-------------------------------------------------- useState ------------------------------------------------------*/
+  const [btnEliminar, setBtnEliminar] = useState(false);
+
+  /*-------------------------------------------------- useRef ------------------------------------------------------*/
+  const btnEliminarRef = useRef();
+
+  /*-------------------------------------------------- useEffect ------------------------------------------------------*/
+  useEffect(() => {
+    if (Object.keys(appPacienteState).length > 0) {
+      btnEliminarRef.current.disabled = true; // this disables the button
+      setBtnEliminar(true);
+    } else {
+      btnEliminarRef.current.disabled = false; // this disables the button
+      setBtnEliminar(false);
+    }
+  }, [appPacienteState]);
+
+  /*-------------------------------------------------- helper functions ------------------------------------------------------*/
   const handleDelete = () => {
     swal({
       title: "Estas seguro de eliminar el registro?",
@@ -59,7 +83,12 @@ const Paciente = ({ paciente, setPaciente, eliminarPaciente }) => {
         </button>
         <button
           type="button"
-          className="bg-red-600 hover:bg-red-700 transition-all duration-150  hover:shadow-xl hover:-translate-y-0.5 transform py-1 px-8 text-white capitalize font-bold rounded-lg cursor-pointer"
+          className={
+            btnEliminar
+              ? "btn-eliminar bg-gray-500 py-1 px-8 text-white capitalize font-bold rounded-lg"
+              : "btn-eliminar bg-red-600 hover:bg-red-700 transition-all duration-150  hover:shadow-xl hover:-translate-y-0.5 transform py-1 px-8 text-white capitalize font-bold rounded-lg cursor-pointer"
+          }
+          ref={btnEliminarRef}
           onClick={handleDelete}
         >
           Eliminar

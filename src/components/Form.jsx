@@ -10,6 +10,7 @@ const Form = ({ pacientes, setPacientes, paciente, setPaciente }) => {
   const [sintomas, setSintomas] = useState("");
 
   const [error, setError] = useState(false);
+  const [mensajeError, setMensajeError] = useState("");
 
   /*-------------------------------------------------- useEffect ------------------------------------------------------*/
 
@@ -29,10 +30,6 @@ const Form = ({ pacientes, setPacientes, paciente, setPaciente }) => {
     // console.log(`El componente esta listo`);
   }, []);
 
-  /*-------------------------------------------------- helper variables ------------------------------------------------------*/
-
-  const mensajeError = "Todos los campos son obligatorios";
-
   /*-------------------------------------------------- helper functions ------------------------------------------------------*/
 
   const generarId = () => {
@@ -42,12 +39,31 @@ const Form = ({ pacientes, setPacientes, paciente, setPaciente }) => {
     return ramdom + fecha;
   };
 
+  const validateDate = (date) => {
+    const [y, m, d] = date.split("-");
+    const currentDate = new Date();
+
+    if (y < currentDate.getFullYear()) return true;
+    if (m < currentDate.getMonth() + 1) return true;
+    if (d <= currentDate.getDate()) return true;
+
+    return false;
+  };
+
   /*-------------------------------------------------- form validations ------------------------------------------------------*/
   const handleSubmit = (e) => {
     e.preventDefault();
 
     // Validación para que los inputs no estén vacíos
     if ([nombreMascota, propietario, email, fechaAlta, sintomas].includes("")) {
+      setMensajeError("Todos los campos son obligatorios");
+      setError(true);
+      return;
+    }
+
+    // Validación para que la fecha sea posterior al dia de Hoy
+    if (validateDate(fechaAlta)) {
+      setMensajeError("La Fecha debe ser posterior al dia de hoy");
       setError(true);
       return;
     }
@@ -104,7 +120,9 @@ const Form = ({ pacientes, setPacientes, paciente, setPaciente }) => {
       <form
         className={
           paciente.id
-            ? "bg-white border-2 border-green-400 shadow-2xl rounded-2xl py-7 px-5"
+            ? "bg-white border-2 border-green-400 shadow-2xl rounded-2xl py-7 px-5 mx-3"
+            : error
+            ? "bg-white border-2 border-red-300 shadow-2xl rounded-2xl py-7 px-5 mx-3"
             : "bg-white shadow-2xl rounded-2xl py-7 px-5 mx-3"
         }
         onSubmit={handleSubmit}
