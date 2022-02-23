@@ -1,10 +1,12 @@
 {
   "name": "react-citas-vet",
+  "homepage": ".",
   "private": true,
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "build-and-docs": "vite build && rm -rf docs && mv dist docs",
     "preview": "vite preview"
   },
   "dependencies": {
